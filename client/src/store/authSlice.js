@@ -5,7 +5,7 @@ const token = localStorage.getItem('staymate_token');
 const user = JSON.parse(localStorage.getItem('staymate_user'));
 
 // Configure default base API URL
-export const API_URL = 'http://localhost:5000/api';
+export const API_URL = 'https://staymate-ai-backend.onrender.com/api';
 
 if (token) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
