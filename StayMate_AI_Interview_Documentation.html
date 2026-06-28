@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StayMate AI - Interview Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --secondary: #06b6d4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --border: #e2e8f0;
+      --text: #334155;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--light);
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 50px;
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--dark);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-top: 2em;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+    
+    p {
+      margin-bottom: 1.2em;
+      font-size: 1rem;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5em;
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 0.5em;
+    }
+    
+    code {
+      font-family: 'Fira Code', monospace;
+      background: #f1f5f9;
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #0f172a;
+    }
+    
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 1.5em;
+      border: 1px solid #1e293b;
+    }
+    
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      font-size: 0.85rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5em;
+      font-size: 0.9rem;
+    }
+    
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.8em;
+      font-weight: 600;
+      background: #eee7ff;
+      color: var(--primary);
+    }
+    
+    .tip-box {
+      background: #ecfeff;
+      border-left: 4px solid var(--secondary);
+      padding: 15px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 1.5em 0;
+    }
+    
+    .tip-box h4 {
+      margin-top: 0;
+      color: #0891b2;
+    }
+    
+    .header-info {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85em;
+      color: #64748b;
+    }
+    
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+      pre {
+        background: #f8fafc;
+        color: #0f172a;
+        border: 1px solid var(--border);
+        page-break-inside: avoid;
+      }
+      pre code {
+        color: #0f172a;
+      }
+      h2, h3 {
+        page-break-after: avoid;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>StayMate AI — Full Stack Documentation</h1>
+    
+    <div class="header-info">
+      <span>Author: D Jeswanth (Lead Developer)</span>
+      <span>Live Site: staymate-ai-sepia.vercel.app</span>
+    </div>
+
+    <p>StayMate AI is a premium SaaS application designed to manage Paying Guest (PG) facilities and co-living operations. It automates room reservations, database logs, support ticketing, announcements, and rent status logs through custom Visitor, Tenant, and Owner portals.</p>
+
+    <h2>1. High-Level Architecture</h2>
+    <p>The application is built on a modern full-stack decoupled architecture:</p>
+    <ul>
+      <li><strong>Frontend (Client):</strong> React.js, compiled using Vite, styled with Tailwind CSS, utilizing Framer Motion for premium animations, and Redux Toolkit for state management.</li>
+      <li><strong>Backend (Server):</strong> Express.js REST API using JSON Web Tokens (JWT) for secure authentication.</li>
+      <li><strong>Database (Storage):</strong> MongoDB Atlas integration. In the absence of a database URL, it automatically cascades to a <strong>local file-system database</strong> written in Node using the <code>fs</code> module.</li>
+    </ul>
+
+    <h2>2. Directory Structure</h2>
+    <pre><code>staymate-ai/
+├── client/                     # React Frontend
+│   ├── src/
+│   │   ├── components/         # Reusable widgets (AIChatbot, Navbar, GlassCard)
+│   │   ├── store/              # Redux Slices (authSlice, notificationSlice)
+│   │   ├── pages/              # Views (LandingPage, Login, Rooms, Dashboards)
+│   │   └── App.jsx             # Routes & authentication protections
+├── server/                     # Node.js Express Backend
+│   ├── config/                 # db connection and localDb seeder configurations
+│   ├── controllers/            # Route logic (tenants, complaints, rooms)
+│   ├── models/                 # Database Mongoose schemas
+│   └── server.js               # Entry script</code></pre>
+
+    <h2>3. Core Database Schemas</h2>
+    
+    <h3>User / Tenant Schema</h3>
+    <pre><code>{
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ['owner', 'tenant'], default: 'tenant' },
+  phone: { type: String },
+  roomId: { type: Schema.Types.ObjectId, ref: 'Room' },
+  roomNumber: { type: String },
+  rentAmount: { type: Number, default: 8000 },
+  rentPaid: { type: Boolean, default: false },
+  joiningDate: { type: Date, default: Date.now }
+}</code></pre>
+
+    <h3>Room Inventory Schema</h3>
+    <pre><code>{
+  pgId: { type: Schema.Types.ObjectId, ref: 'PG', required: true },
+  roomNumber: { type: String, required: true },
+  sharingType: { type: String, required: true },
+  rent: { type: Number, required: true },
+  totalBeds: { type: Number, required: true },
+  occupiedBeds: { type: Number, default: 0 }
+}</code></pre>
+
+    <h2>4. Core Coding Highlights</h2>
+
+    <h3>A. Converting Images to Base64 String (FileReader API)</h3>
+    <p>To avoid cloud storage cost configurations during development, tenant complaint photos are read locally as base64 strings and stored inside the database:</p>
+    <pre><code>const file = e.target.files[0];
+const reader = new FileReader();
+reader.onloadend = () => {
+  setFormData({ ...formData, image: reader.result }); // Base64 Data URL
+};
+reader.readAsDataURL(file);</code></pre>
+
+    <h3>B. Role-Based Route Protection (RBAC)</h3>
+    <p>API requests are verified by a custom JSON Web Token middleware inside <code>authMiddleware.js</code>:</p>
+    <pre><code>const auth = (roles = []) => {
+  return (req, res, next) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
+
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
+      req.user = decoded;
+      
+      if (roles.length && !roles.includes(decoded.role)) {
+        return res.status(403).json({ msg: 'Access denied: Insufficient permissions' });
+      }
+      next();
+    } catch (err) {
+      res.status(401).json({ msg: 'Token is not valid' });
+    }
+  };
+};</code></pre>
+
+    <h2>5. Interview Preparation Q&A Cheatsheet</h2>
+
+    <div class="tip-box">
+      <h4>Q: "How did you manage frontend state?"</h4>
+      <p><strong>A:</strong> "I used Redux Toolkit. It allowed me to manage global authentication tokens and user notifications in a centralized store, preventing the need to drill props down to child elements."</p>
+    </div>
+
+    <div class="tip-box">
+      <h4>Q: "What will break if the site scales to 50,000 tenants?"</h4>
+      <p><strong>A:</strong> "First, the local JSON database fallback will experience disk-write latency under parallel loads; we'd migrate strictly to MongoDB Atlas with database indexing. Second, storing images as Base64 strings will bloat our database records. We would offload image uploads to AWS S3 and store only the secure image links."</p>
+    </div>
+
+    <div class="tip-box">
+      <h4>Q: "How does the room transfer transaction work?"</h4>
+      <p><strong>A:</strong> "When shifting a tenant, the backend checks for vacancy in the target room. If open, it updates the tenant record, increments <code>occupiedBeds</code> in the target room, and decrements it in the previous room. In production, we execute this as an atomic MongoDB database transaction."</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
