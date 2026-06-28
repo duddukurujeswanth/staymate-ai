@@ -84,7 +84,7 @@ const Login = () => {
       const isOwner = role === 'owner';
       
       const mockUser = isOwner 
-        ? { id: 'u1', name: 'Sarah Connor (Owner)', email: formData.email, role: 'owner', phone: '+91 9876543210' }
+        ? { id: 'u1', name: 'D Jeswanth (Owner)', email: formData.email, role: 'owner', phone: '+91 9876543210' }
         : { id: 'u2', name: formData.name || 'Alex Mercer', email: formData.email, role: 'tenant', phone: formData.phone || '+91 9988776655', pgId: 'pg1', roomId: 'r1', roomNumber: '101', sharingType: '1 Sharing', rentAmount: 10000, rentPaid: false };
       
       dispatch(authSuccess({ user: mockUser, token: 'mock_jwt_token_staymate_123' }));

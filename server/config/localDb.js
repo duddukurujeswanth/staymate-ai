@@ -23,7 +23,7 @@ const getSeedData = (collection) => {
       return [
         {
           id: 'u1',
-          name: 'Sarah Connor (Owner)',
+          name: 'D Jeswanth (Owner)',
           email: 'owner@staymate.ai',
           password: hashedPassword,
           role: 'owner',
