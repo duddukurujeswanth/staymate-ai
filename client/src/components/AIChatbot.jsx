@@ -86,7 +86,7 @@ const AIChatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-sans">
+    <div className="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 z-50 font-sans flex flex-col items-end pointer-events-none">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -94,7 +94,7 @@ const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="w-[340px] sm:w-[380px] h-[500px] rounded-3xl border border-white/10 bg-[#0b0f19]/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden mb-4"
+            className="w-full sm:w-[380px] h-[450px] sm:h-[500px] max-h-[calc(100vh-120px)] rounded-3xl border border-white/10 bg-[#0b0f19]/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden mb-4 pointer-events-auto"
           >
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10 border-b border-white/10 flex justify-between items-center">
@@ -203,7 +203,7 @@ const AIChatbot = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 rounded-full bg-aurora-gradient flex items-center justify-center text-white shadow-neon-violet border border-white/10 relative"
+        className="w-14 h-14 rounded-full bg-aurora-gradient flex items-center justify-center text-white shadow-neon-violet border border-white/10 relative pointer-events-auto"
       >
         {isOpen ? (
           <X className="w-6 h-6" />
